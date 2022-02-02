@@ -4276,6 +4276,69 @@
           "default": "postgres"
         }
       ]
+    },
+    {
+      "type": 1,
+      "title": "VictoriaMetrics",
+      "name": "VictoriaMetrics",
+      "description": "VictoriaMetrics is a fast, cost-effective and scalable monitoring solution and time series database.",
+      "logo": "https://github.com/VictoriaMetrics/VictoriaMetrics/blob/master/logo.png",
+      "image": "victoriametrics/victoria-metrics:latest",
+      "categories": [
+        "Other",
+        "Tools",
+        "Management"
+      ],
+      "platform": "linux",
+      "restart_policy": "unless-stopped",
+      "ports": [
+        {
+        "HTTP": "8428:8428",
+        "Graphite (statsd) TCP": "2003:2003/tcp",
+        "Graphite (statsd) UDP": "2003:2003/udp",
+        "OpenTSDB": "4242:4242",
+        "Influx TCP": "8089:8089/tcp",
+        "Influx UDP": "8089:8089/udp"
+        }
+      ],
+      "volumes": [
+        {
+          "container": "/victoria-metrics-single",
+          "bind": "/srv/dev-disk-by-label-media/Files/AppData/Config/victoria-metrics-single"
+        }
+      ],
+      "env": [
+        {
+          "name": "PUID",
+          "label": "PUID",
+          "default": "1000"
+        },
+        {
+          "name": "PGID",
+          "label": "PGID",
+          "default": "100"
+        },
+        {
+          "name": "PORT",
+          "label": "PORT",
+          "default": "8428"
+        },
+        {
+          "name": "PORT",
+          "label": "PORT",
+          "default": "2003"
+        },
+        {
+          "name": "PORT",
+          "label": "PORT",
+          "default": "4242"
+        },
+        {
+          "name": "PORT",
+          "label": "PORT",
+          "default": "8089"
+        }
+      ]
     }
   ]
   
